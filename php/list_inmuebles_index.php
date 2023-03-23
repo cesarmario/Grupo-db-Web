@@ -78,6 +78,8 @@ while ($inmuebles = mysqli_fetch_assoc($rtsinmuebles)) {
         $domicilio .= "<br>&nbsp;<b>" . $inmuebles['nombreLocalidad'] . "</b>";
     }
 
+    $nombreOperacion = $inmuebles['nombreOperacion'];
+    $nombreLocalidad = $inmuebles['nombreLocalidad'];
 
 
     $listado .= "<div class='col-sm-6 col-md-3 p0'>";
@@ -87,9 +89,9 @@ while ($inmuebles = mysqli_fetch_assoc($rtsinmuebles)) {
     $listado .= "</div>";
     $listado .= "<div class='item-entry overflow'>";
     $listado .= "<h5><a href='detalle-inmueble.php?idInmueble=" . $inmuebles['idInmueble'] . "&operacion=" . $inmuebles['idOperacion'] . "&propiedad=" . $inmuebles['idPropiedad'] . "'>" .  $inmuebles['tituloInmueble'] . "</a></h5>";
-    $listado .= "<div class='dot-hr'></div>";
-    $listado .= "<span class='pull-left'><b>Superficie:</b>" . $superficieCubiertaInmueble . "</span>";
-    $listado .= "<span class='proerty-price pull-right'>$ 55.000</span>";
+    $listado .= "<div class='dot-hr'>" . $nombreLocalidad . "</div>";
+    $listado .= "<span class='pull-left'><b>" . $nombreOperacion . "</b></span>";
+    $listado .= "<span class='proerty-price pull-right'>" . $valorInmueble . "</span>";
     $listado .= "</div>";
     $listado .= "</div>";
     $listado .= "</div>";
