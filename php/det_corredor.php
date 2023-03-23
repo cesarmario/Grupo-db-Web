@@ -11,7 +11,7 @@ $emailCorredor = $contacto['emailUsuario'];
 $domicilioCorredor = $contacto['domicilioUsuario'];
 $imagen = $contacto['logoUsuario'];
 $logoCorredor = "/gestion/assets/images/usuarios/" . $imagen;
-$logoCorredor = "/gestion/assets/images/usuarios/000000.png";
+//$logoCorredor = "/gestion/assets/images/usuarios/000000.png";
 if (file_exists($logoCorredor)) {
-    //   $logoCorredor = "/gestion/assets/images/usuarios/000000.png";
+    $logoCorredor = "/gestion/assets/images/usuarios/000000.png";
 }
