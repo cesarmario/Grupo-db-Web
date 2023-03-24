@@ -40,6 +40,10 @@ include('php/list_inmuebles_destacados');
     <link rel="stylesheet" href="assets/css/responsive.css">
 
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css" integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ==" crossorigin="" />
+
+    <link href="https://unpkg.com/filepond/dist/filepond.css" rel="stylesheet">
+    <link href="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css" rel="stylesheet">
+
 </head>
 
 <body>
@@ -249,7 +253,7 @@ include('php/list_inmuebles_destacados');
                                     <?PHP echo $nombreLocalidad; ?>
                                 </p>
                                 <?PHP if (!empty($ubicacionInmueble)) { ?>
-                                    <!-- <div id="myMap" name="myMap" style="height: 400px" required></div> -->
+                                    <div id="myMap" name="myMap" style="height: 400px" required></div>
                                     <a href="https://www.google.com/maps?q=<?PHP echo $ubicacionInmueble; ?>&z=17&hl=es" target="_blank" class="btn btn-info">Ver en el Mapa</a>
                                 <?PHP } ?>
                             </div>
