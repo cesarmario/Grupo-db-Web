@@ -1,6 +1,6 @@
 <?PHP
 include('php/det_inmueble.php');
-include('php/list_inmuebles_destacados');
+include('php/list_inmuebles_destacados.php');
 ?>
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
@@ -410,9 +410,7 @@ include('php/list_inmuebles_destacados');
                                 <h3 class="panel-title"><?PHP echo $tituloDestacado ?></h3>
                             </div>
                             <div class="panel-body recent-property-widget">
-                                <ul>
-                                    <?PHP echo $destacado; ?>
-                                </ul>
+                                <?PHP echo $destacado; ?>
                             </div>
                         </div>
 

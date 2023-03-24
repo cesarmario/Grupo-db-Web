@@ -17,15 +17,13 @@ if (isset($_REQUEST['operacion'])) {
 
 $filtro = $propiedad . $operacion;
 
-$queryinmueblesdest = "SELECT * FROM vista_inmuebles WHERE baja != '1' and idInmueble != '$_REQUEST[idInmueble]' $filtro ORDER BY fecha DESC LIMIT 3";
+$queryinmueblesdest = "SELECT * FROM vista_inmuebles WHERE baja != '1' and idInmueble != '$_REQUEST[idInmueble]' $filtro ORDER BY fecha DESC LIMIT 6";
 
 $rtsinmueblesdest = mysqli_query($conexion, $queryinmueblesdest);
 
-//$destacado = "<div class='row mb-5'>";
 
-$destacado = "";
 $tituloDestacado = "";
-
+$destacado = "<ul>";
 while ($inmueblesdest = mysqli_fetch_assoc($rtsinmueblesdest)) {
 
     $tituloDestacado = "Propiedades Similares";
@@ -71,49 +69,21 @@ while ($inmueblesdest = mysqli_fetch_assoc($rtsinmueblesdest)) {
         $domicilio .= "<br>&nbsp;<b>" . $inmueblesdest['nombreLocalidad'] . "</b>";
     }
 
-    // $destacado .= "<div class='col-md-6 col-lg-4 mb-4'>";
-    // $destacado .= "<div class='property-entry h-100'>";
-    // $destacado .= "<a href='detalle-inmueble.php?idInmueble=" . $inmueblesdest['idInmueble'] . "&operacion=" . $inmueblesdest['idOperacion'] . "&propiedad=" . $inmueblesdest['idPropiedad'] . "' class='property-thumbnail'>";
-    // $destacado .= "<div class='offer-type-wrap'>";
-    // $destacado .= "<span class='offer-type bg-success'>" . $inmueblesdest['nombrePropiedad'] . "</span>";
-    // $destacado .= "<span class='offer-type bg-secondary'>" . $inmueblesdest['nombreOperacion'] . "</span>";
-    // $destacado .= "</div>";
-    // $destacado .= "<img src='" . $nomimgDest . "' alt='" . $idimgDest . "' class='img-fluid'>";
-    // $destacado .= "</a>";
-    // $destacado .= "<div class='p-4 property-body'>";
-    // $destacado .= "<h2 class='property-title'><a href='detalle-inmueble.php?idInmueble=" . $inmueblesdest['idInmueble'] . "&pperacion=" . $inmueblesdest['idOperacion'] . "&propiedad=" . $inmueblesdest['idPropiedad'] . "'>" .  $inmueblesdest['tituloInmueble'] . "</a></h2>";
-    // $destacado .= "<span class='property-location d-block mb-3'><span class='property-icon icon-room'></span>" . $inmueblesdest['domicilioCalleInmueble'] . $domicilio . "</span>";
-    // $destacado .= "<strong class='property-price text-primary mb-3 d-block text-success'>" . $valorInmuebleDest . "</strong>";
-    // $destacado .= "<ul class='property-specs-wrap mb-3 mb-lg-0'>";
-    // $destacado .= "<li>";
-    // $destacado .= "<span class=property-specs'>Habitaciones</span>";
-    // $destacado .= "<span class='property-specs-number'><br>" . $habitacionesInmuebleDest . " </span>";
-    // $destacado .= "</li>";
-    // $destacado .= "<li>";
-    // $destacado .= "<span class='property-specs'>Baños</span>";
-    // $destacado .= "<span class='property-specs-number'>" . $banosInmuebleDest . "</span>";
-    // $destacado .= "</li>";
-    // $destacado .= "<li>";
-    // $destacado .= "<span class='property-specs'>Superficie</span>";
-    // $destacado .= "<span class='property-specs-number'>" . $superficieCubiertaInmuebleDest . "</span>";
-    // $destacado .= "</li>";
-    // $destacado .= "</ul>";
-    // $destacado .= "</div>";
-    // $destacado .= "</div>";
-    // $destacado .= "</div>";
+    $nombreLocalidad = $inmueblesdest['nombreLocalidad'];
+    $nombreOperacion = $inmueblesdest['nombreOperacion'];
 
     $destacado .= "<li>";
     $destacado .= "<div class='col-md-3 col-sm-3 col-xs-3 blg-thumb p0'>";
     $destacado .= "<a href='detalle-inmueble.php?idInmueble=" . $inmueblesdest['idInmueble'] . "&operacion=" . $inmueblesdest['idOperacion'] . "&propiedad=" . $inmueblesdest['idPropiedad'] . "'><img src='" . $nomimgDest . "'></a>";
     $destacado .= "<span class='property-seeker'>";
-    $destacado .= "<!-- <b class='b-1'>A</b>";
-    $destacado .= "<b class='b-2'>S</b> -->";
+    $destacado .= "<b class='b-1'>" . $nombreOperacion . "</b>";
+    $destacado .= "<!--<b class='b-2'>S</b> -->";
     $destacado .= "</span>";
     $destacado .= "</div>";
     $destacado .= "<div class='col-md-8 col-sm-8 col-xs-8 blg-entry'>";
     $destacado .= "<h6> <a href='detalle-inmueble.php?idInmueble=" . $inmueblesdest['idInmueble'] . "&operacion=" . $inmueblesdest['idOperacion'] . "&propiedad=" . $inmueblesdest['idPropiedad'] . "'>" . $inmueblesdest['nombrePropiedad'] . "</a></h6>";
-    $destacado .= "<span class='property-price'>USD59.000</span>";
+    $destacado .= "<span class='property-price'>" . $valorInmuebleDest . "</span>";
     $destacado .= "</div>";
     $destacado .= "</li>";
 }
-    //$destacado .= "</div>";
+$destacado .= "</ul>";
