@@ -28,7 +28,7 @@ while ($inmueblesdest = mysqli_fetch_assoc($rtsinmueblesdest)) {
 
     $tituloDestacado = "Propiedades Similares";
 
-    $queryimagenDest = "SELECT * FROM imagen WHERE idInmueble = '$inmueblesdest[idInmueble]' AND baja != '1' ORDER BY idImagen DESC LIMIT 1";
+    $queryimagenDest = "SELECT * FROM imagen WHERE idInmueble = '$inmueblesdest[idInmueble]' AND baja != '1' ORDER BY ordenImagen ASC LIMIT 1";
     $rtsimagenDest = mysqli_query($conexion, $queryimagenDest);
     $imgDest = mysqli_fetch_assoc($rtsimagenDest);
     $idimgDest = $imgDest['idImagen'];

@@ -36,7 +36,7 @@ $listado = "<div id='list-type' class='proerty-th'>";
 
 while ($inmuebles = mysqli_fetch_assoc($rtsinmuebles)) {
 
-    $queryimagen = "SELECT * FROM imagen WHERE idInmueble = '$inmuebles[idInmueble]' AND baja != '1' ORDER BY idImagen DESC LIMIT 1";
+    $queryimagen = "SELECT * FROM imagen WHERE idInmueble = '$inmuebles[idInmueble]' AND baja != '1' ORDER BY ordenImagen ASC LIMIT 1";
     $rtsimagen = mysqli_query($conexion, $queryimagen);
     $img = mysqli_fetch_assoc($rtsimagen);
     $idimg = $img['idImagen'];
