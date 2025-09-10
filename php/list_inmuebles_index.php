@@ -26,7 +26,7 @@ $filtro = $propiedad . $operacion . $localidad;
 //echo "Localidad: " . $localidad . "<br>";   
 //echo $filtro;
 if (empty($filtro)) {
-    $limit = "LIMIT 7";
+    $limit = "LIMIT 12";
 }
 $queryinmuebles = "SELECT * FROM vista_inmuebles WHERE baja != '1' $filtro ORDER BY fecha DESC $limit";
 
@@ -88,7 +88,7 @@ while ($inmuebles = mysqli_fetch_assoc($rtsinmuebles)) {
     $listado .= "<a href='detalle-inmueble.php?idInmueble=" . $inmuebles['idInmueble'] . "&operacion=" . $inmuebles['idOperacion'] . "&propiedad=" . $inmuebles['idPropiedad'] . "'><img src='" . $nomimg . "'></a>";
     $listado .= "</div>";
     $listado .= "<div class='item-entry overflow'>";
-    $listado .= "<h5><a href='detalle-inmueble.php?idInmueble=" . $inmuebles['idInmueble'] . "&operacion=" . $inmuebles['idOperacion'] . "&propiedad=" . $inmuebles['idPropiedad'] . "'>" .  $inmuebles['tituloInmueble'] . "</a></h5>";
+    $listado .= "<h6><a href='detalle-inmueble.php?idInmueble=" . $inmuebles['idInmueble'] . "&operacion=" . $inmuebles['idOperacion'] . "&propiedad=" . $inmuebles['idPropiedad'] . "'>" .  $inmuebles['tituloInmueble'] . "</a></h6>";
     $listado .= "<div class='dot-hr'>" . $nombreLocalidad . "</div>";
     $listado .= "<span class='pull-left'><b>" . $nombreOperacion . "</b></span>";
     $listado .= "<span class='proerty-price pull-right'>" . $valorInmueble . "</span>";
