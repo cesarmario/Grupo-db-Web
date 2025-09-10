@@ -26,7 +26,7 @@ $filtro = $propiedad . $operacion . $localidad;
 //echo "Localidad: " . $localidad . "<br>";   
 //echo $filtro;
 if (empty($filtro)) {
-    $limit = "LIMIT 12";
+    $limit = "LIMIT 11";
 }
 $queryinmuebles = "SELECT * FROM vista_inmuebles WHERE baja != '1' $filtro ORDER BY fecha DESC $limit";
 
